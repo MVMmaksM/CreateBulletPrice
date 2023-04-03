@@ -1,4 +1,5 @@
 ﻿using CreateBulletPrice.Models;
+using Newtonsoft.Json;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using System;
@@ -13,6 +14,12 @@ namespace CreateBulletPrice.Services
 {
     internal class File
     {
+        public static void SaveSetting(Setting settings) 
+        {
+            var settingString = JsonConvert.SerializeObject(settings);
+
+            SaveFile($"{Environment.CurrentDirectory}\\Setting.json", Encoding.ASCII.GetBytes(settingString));
+        }
         public static ExcelWorksheet ReadExcel(string path)
         {
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;

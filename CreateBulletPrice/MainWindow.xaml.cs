@@ -29,6 +29,8 @@ namespace CreateBulletPrice
 
             try
             {
+                File.SaveSetting(new Setting() { ConnectionString = "Initial Catalog=Apk_rc_bullet;Data Source=p45-db08;Trusted_Connection=True;TrustServerCertificate=True" });
+
                 using (var dbContext = new ApplicationContext())
                 {
                     LblCountRowBdKor.Content = $"короткий перечень: {dbContext.Perechen_kor.Count()} записей";
