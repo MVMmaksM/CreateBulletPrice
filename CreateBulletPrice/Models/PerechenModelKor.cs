@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace CreateBulletPrice.Models
 {
-    internal class PerechenModel
-    {        
-        public int Ord { get; set; }
-        public int Kod { get; set; }
-        public string? Name { get; set; }
+    internal class PerechenModelKor :PerechenModel
+    {
+        public int ID { get; set; }
     }
 }

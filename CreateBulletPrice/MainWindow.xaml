@@ -5,19 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CreateBulletPrice"
         mc:Ignorable="d"
-        Title="MainWindow" Height="320" Width="494">
+        Title="MainWindow" Height="320" Width="494" ResizeMode="NoResize">
     <Grid>
-        <Grid Background="#FFE5E5E5" Margin="0,0,0,20">
-            <Button x:Name="BtnLoadKor" Content="Загрузить короткий перечень" HorizontalAlignment="Left" Margin="22,72,0,0" VerticalAlignment="Top" Width="196" Click="BtnLoadKor_Click"/>
-            <Button x:Name = "BtnLoadPolny" Content="Загрузить полный перечень" HorizontalAlignment="Left" Margin="258,72,0,0" VerticalAlignment="Top" Width="187" Click="BtnLoadPolny_Click"/>
-            <Label x:Name="LblCountRowKor"  Content="Загружено: " HorizontalAlignment="Left" Margin="22,43,0,0" VerticalAlignment="Top" Width="196"/>
-            <Label x:Name="LblCountRowPolny" Content="Загружено:" HorizontalAlignment="Left" Margin="258,43,0,0" VerticalAlignment="Top" Width="187"/>
-            <Button x:Name="BtnCreateKorBullet" Content="Сформировать короткий" HorizontalAlignment="Left" Margin="22,208,0,0" VerticalAlignment="Top" Width="196" Click="CreateKorBullet_Click"/>
-            <Label x:Name="LblCountRowPrice" Content="Загружено:" HorizontalAlignment="Left" Margin="22,109,0,0" Width="196" Height="26" VerticalAlignment="Top"/>
-            <Button x:Name="BtnLoadDataPrice" Content="Загрузить цены по городам" HorizontalAlignment="Left" Margin="22,140,0,0" VerticalAlignment="Top" Width="196" Click="BtnLoadDataPrice_Click"/>
-            <Button x:Name="BtnCreatePolnyBullet" Content="Сформировать полный" HorizontalAlignment="Left" Margin="258,208,0,0" VerticalAlignment="Top" Width="187" Click="CreatePolnyBullet"/>
-            <Label x:Name="LblBulletKorCount" Content="" HorizontalAlignment="Left" Margin="22,182,0,0" VerticalAlignment="Top" Width="196"/>
-            <Label x:Name="LblBulletPolnyCount" Content="" HorizontalAlignment="Left" Margin="258,182,0,0" VerticalAlignment="Top" Width="187"/>
+        <Menu VerticalAlignment="Top" Height="20">
+            <MenuItem Header="Меню" Height="20">
+                <MenuItem Header="Загрузить в БД короткий перечень" Click="MenuItem_Click_Load_Kor"/>
+                <MenuItem Header="Загрузить в БД полный перечень" Click="MenuItem_Click_Load_Polny"/>
+                <MenuItem Header="О программе"/>
+            </MenuItem>
+        </Menu>
+        <Grid Background="#FFE5E5E5" Margin="0,20,0,20">
+            <Label x:Name="LblCountRowPrice" Content="Загружено:" HorizontalAlignment="Left" Margin="144,0,0,127" Width="196" Height="26" VerticalAlignment="Bottom"/>
+            <Button x:Name="BtnLoadDataPrice" Content="Загрузить цены по городам" HorizontalAlignment="Left" Margin="144,0,0,107" Width="196" Click="BtnLoadDataPrice_Click" Height="20" VerticalAlignment="Bottom"/>
+            <GroupBox Header="Бюллетень" Height="102" VerticalAlignment="Bottom">
+                <Grid>
+                    <Button x:Name="BtnCreateKorBullet" Margin="250,40,0,0" Content="Сформировать короткий" Click="CreateKorBullet_Click" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="196"/>
+                    <Button x:Name="BtnCreatePolnyBullet" Margin="30,40,0,0" Content="Сформировать полный" Click="CreatePolnyBullet" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="187"/>
+                    <Label x:Name="LblBulletKorCount" Margin="250,10,36,0" Height="26" VerticalAlignment="Top"/>
+                    <Label x:Name="LblBulletPolnyCount" Margin="30,10,265,0" Height="26" VerticalAlignment="Top"/>
+                </Grid>
+            </GroupBox>
+            <Label Content="База данных:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="96"/>
+            <Label x:Name="LblCountRowBdKor" HorizontalAlignment="Left" Margin="10,28,0,0" VerticalAlignment="Top" Width="232"/>
+            <Label x:Name="LblCountRowBdPolny" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="232"/>
         </Grid>
         <StatusBar Height="20" VerticalAlignment="Bottom"/>
     </Grid>

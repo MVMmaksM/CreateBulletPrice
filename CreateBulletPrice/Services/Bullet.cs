@@ -12,19 +12,43 @@ namespace CreateBulletPrice.Services
 {
     internal class Bullet
     {
-        public static List<PerechenModel>? GetPerechen(ExcelWorksheet excelWorksheet)
+        public static List<PerechenModelKor>? GetPerechenKor(ExcelWorksheet excelWorksheet)
         {
             if (excelWorksheet.Dimension == null)
             {
                 return null;
             }
 
-            var listPerechen = new List<PerechenModel>();
+            var listPerechen = new List<PerechenModelKor>();
 
             for (int i = 1; i <= excelWorksheet.Dimension.End.Row; i++)
             {
                 var row = excelWorksheet.Cells[i, 1, i, excelWorksheet.Dimension.End.Column];
-                PerechenModel perechenModel = new PerechenModel();
+                PerechenModelKor perechenModel = new PerechenModelKor();
+
+                perechenModel.Ord = int.Parse(row[i, 1].Text);
+                perechenModel.Kod = int.Parse(row[i, 2].Text);
+                perechenModel.Name = row[i, 3].Text;
+
+                listPerechen.Add(perechenModel);
+            }
+
+            return listPerechen;
+        }
+
+        public static List<PerechenModelPolny>? GetPerechenPolny(ExcelWorksheet excelWorksheet)
+        {
+            if (excelWorksheet.Dimension == null)
+            {
+                return null;
+            }
+
+            var listPerechen = new List<PerechenModelPolny>();
+
+            for (int i = 1; i <= excelWorksheet.Dimension.End.Row; i++)
+            {
+                var row = excelWorksheet.Cells[i, 1, i, excelWorksheet.Dimension.End.Column];
+                PerechenModelPolny perechenModel = new PerechenModelPolny();
 
                 perechenModel.Ord = int.Parse(row[i, 1].Text);
                 perechenModel.Kod = int.Parse(row[i, 2].Text);
